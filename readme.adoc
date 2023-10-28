@@ -12,24 +12,15 @@ https://learnopencv.com/super-resolution-in-opencv/
 
 The core of the project is the following Python script: 
 
-[source,python]
-----
-include::upscale.py[]
-----
+link:upscale.py[]
 
 The python file get copied into the docker container during build. (This is intendet for Docker Desktop on Windows atm)
 
-[source,dockerfile]
-----
-include::Dockerfile[]
-----
+link:Dockerfile[]
 
 The last important fill is the shell script that puts everything together. You have to call the script with the image file Name as a parameter. The script will rebuild the docker file. Map everything and than open up a bash shell in the container. 
 
-[source,bash]
-----
-include::run.sh[]
-----
+link:run.sh[]
 
 == Todos
 
