@@ -3,11 +3,13 @@ import sys
 
 imageName = sys.argv[1]
 
+print(imageName)
+
 print('Create an SR object') 
 sr = cv2.dnn_superres.DnnSuperResImpl.create()
 
 print('Read image')  
-image = cv2.imread('./'+imageName)
+image = cv2.imread('./in/'+imageName)
   
 print('Read the desired model') 
 path = "LapSRN_x2.pb"

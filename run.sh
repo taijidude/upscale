@@ -1,10 +1,8 @@
 file="$1" 
-
 echo "$file"
-docker build -t "opencv:latest" .
 
-docker run -it \
+docker run \
 -e file_to_convert="$file" \
---mount type=bind,source="$(pwd)/$file",target="/$file" \
+--mount type=bind,source="$(pwd)/$file",target="/in/$file" \
 --mount type=bind,source="$(pwd)/out/",target="/out" \
-"opencv:latest" bash
+"opencv:latest" python ./upscale.py $file
