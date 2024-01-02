@@ -1,17 +1,29 @@
 import cv2
-import sys
+import sys 
+import os
+from pathlib import Path
 
-imageName = sys.argv[1]
+print("Upscale wird gestartet...")
 
-print(imageName)
+imageName = os.getenv('file_to_convert')
 
-print('Create an SR object') 
+fileToWorkWith=Path(imageName)
+if not fileToWorkWith.is_file():
+    print("Die Datei "+str(fileToWorkWith)+" existiert nicht!")
+    sys.exit(1)
+
+print('Datei gefunden...')
+
+
+fileToWorkWith = str(fileToWorkWith)
+
+print('Create an SR object')
 sr = cv2.dnn_superres.DnnSuperResImpl.create()
 
 print('Read image')  
-image = cv2.imread('./in/'+imageName)
-  
-print('Read the desired model') 
+image = cv2.imread(fileToWorkWith)
+
+print('Read the desired model')
 path = "LapSRN_x2.pb"
 sr.readModel(path)
 
