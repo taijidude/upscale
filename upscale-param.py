@@ -3,7 +3,7 @@ import sys
 import os
 from pathlib import Path
 
-print("Upscale wird gestartet...")
+print("Upscale started...")
 
 fileToWorkWith=Path(sys.argv[1])
 
@@ -12,6 +12,7 @@ sr = cv2.dnn_superres.DnnSuperResImpl.create()
 
 print('Read image')  
 image = cv2.imread(fileToWorkWith.name)
+print(image.shape)
 
 print('Read the desired model')
 path = "LapSRN_x2.pb"
@@ -22,5 +23,6 @@ sr.setModel("lapsrn", 2)
 
 print('Upscale the image')
 result = sr.upsample(image)
+print(result.shape)
 print('Save the image')
 cv2.imwrite('./upscaled-'+fileToWorkWith.name, result)
