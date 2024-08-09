@@ -4,7 +4,6 @@ import os
 import typer
 from pathlib import Path
 
-
 def main(upscale: Path):
     if not upscale.exists():
         raise Exception("Der Pfad: "+upscale+" existiert nicht!")
