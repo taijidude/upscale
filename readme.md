@@ -13,8 +13,7 @@ https://learnopencv.com/super-resolution-in-opencv/
 # Setup Codespace
 
 ```shell 
-gh repo clone taijidude/upscale && 
-./upscale/setup.sh
+gh repo clone taijidude/upscale && ./upscale/setup.sh
 
 
 
