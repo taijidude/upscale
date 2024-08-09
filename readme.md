@@ -1,6 +1,6 @@
-= Upscale Images 
+# Upscale Images 
 
-== Overview 
+# Overview 
 
 Sorry for this hastly wrote down readme. As i write this i try to backup my computer. 
 
