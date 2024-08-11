@@ -15,4 +15,4 @@ jobs:
       - name: main
         run: ls ./main  
       - name: setup-dependencies 
-        run: ./upscale/setup.sh
+        run: ./main/setup.sh
