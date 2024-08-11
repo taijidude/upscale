@@ -6,10 +6,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: upscale
       - name: setup-dependencies 
-        run: ./upscale/setup.sh
+        run: setup.sh
       - name: upscale
         run: python3 upscale-param.py astronaut.py
       - name: config user name  
