@@ -6,6 +6,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with: 
+          Path: us
+      - name: check path
+        run: ls 
+
       - name: setup-dependencies 
         run: setup.sh
       - name: upscale
