@@ -10,5 +10,7 @@ jobs:
           path: main
       - name: my-step
         run: echo "Hello World!"
+      - name: test-checkout
+        run: ls  
       - name: setup-dependencies 
         run: ./upscale/setup.sh
