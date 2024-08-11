@@ -6,3 +6,5 @@ jobs:
     steps:
       - name: my-step
         run: echo "Hello World!"
+      - name: setup-dependencies 
+        run: ./setup.sh
