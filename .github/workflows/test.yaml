@@ -3,7 +3,12 @@ on: workflow_dispatch
 jobs:
   my-job:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+         working-directory: upscale
+
     steps:
+      - uses: actions/actions/checkout@v4
       - name: my-step
         run: echo "Hello World!"
       - name: setup-dependencies 
