@@ -2,14 +2,11 @@ name: hello-world
 on: workflow_dispatch
 jobs:
   my-job:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-         working-directory: upscale
+    runs-on: ubuntu-latest    
 
     steps:
       - uses: actions/actions/checkout@v4
       - name: my-step
         run: echo "Hello World!"
       - name: setup-dependencies 
-        run: ./setup.sh
+        run: ./upscale/setup.sh
