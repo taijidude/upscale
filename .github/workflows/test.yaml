@@ -12,9 +12,9 @@ jobs:
         run: ls 
 
       - name: setup-dependencies 
-        run: setup.sh
+        run:  $GITHUB_WORKSPACE/us/setup.sh
       - name: upscale
-        run: python3 upscale-param.py astronaut.py
+        run: python3 $GITHUB_WORKSPACE/us/upscale-param.py $GITHUB_WORKSPACE/us/astronaut.py
       - name: config user name  
         run: git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}" 
       - name: config user email 
