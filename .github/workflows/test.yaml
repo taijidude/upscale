@@ -7,14 +7,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: 
-          Path: us
+          Path: GITHUB_WORKSPACE/us1
       - name: check path
         run: ls 
 
       - name: setup-dependencies 
-        run:  $GITHUB_WORKSPACE/us/setup.sh
+        run:  $GITHUB_WORKSPACE/us1/setup.sh
       - name: upscale
-        run: python3 $GITHUB_WORKSPACE/us/upscale-param.py $GITHUB_WORKSPACE/us/astronaut.py
+        run: python3 $GITHUB_WORKSPACE/us1/upscale-param.py $GITHUB_WORKSPACE/us1/astronaut.py
       - name: config user name  
         run: git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}" 
       - name: config user email 
