@@ -28,7 +28,10 @@ def main(upscale: Path):
     print(result.shape)
     print('Save the image')
     cv2.imwrite('./upscaled-'+upscale.name, result)
-
+    # Hier sollte der Name in eine Liste geschrieben werden
+    # Oder es könnte einen Ordner out und einen Ordner in geben. 
+    # Das Script macht dann einen Abgleich
+    # Es sollte einen Funktion geben, die seed und prompt verarbeitet 
 if __name__ == "__main__":
     print("Upscale started...")
     typer.run(main)
