@@ -6,6 +6,8 @@ jobs:
 
     steps:
       - uses: actions/actions/checkout@v4
+        with:
+          path: main
       - name: my-step
         run: echo "Hello World!"
       - name: setup-dependencies 
