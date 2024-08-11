@@ -7,11 +7,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: main
+          path: upscale
       - name: setup-dependencies 
-        run: ./main/setup.sh
+        run: ./upscale/setup.sh
       - name: upscale
-        run: python3 ./main/upscale-param.py ./main/astronaut.py
+        run: python3 ./upscale/upscale-param.py ./main/astronaut.py
       - name: config user name  
         run: git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}" 
       - name: config user email 
