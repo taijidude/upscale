@@ -11,7 +11,7 @@ jobs:
       - name: setup-dependencies 
         run: ./main/setup.sh
       - name: upscale
-        run: python3 upscale-param.py astronaut.py
+        run: python3 ./main/upscale-param.py ./main/astronaut.py
       - name: config user name  
         run: git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}" 
       - name: config user email 
