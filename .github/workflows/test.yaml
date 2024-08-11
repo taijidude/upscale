@@ -12,5 +12,7 @@ jobs:
         run: echo "Hello World!"
       - name: test-checkout
         run: ls  
+      - name: main
+        run: ls ./main  
       - name: setup-dependencies 
         run: ./upscale/setup.sh
