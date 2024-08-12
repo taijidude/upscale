@@ -1,40 +1,37 @@
 import cv2
 import sys 
 import os
+import typer
 from pathlib import Path
 
-print("Upscale wird gestartet...")
+def main(upscale: Path):
+    if not upscale.exists():
+        raise Exception("Der Pfad: "+upscale+" existiert nicht!")
+    
+    print('Create an SR object...')
+    sr = cv2.dnn_superres.DnnSuperResImpl.create()
 
-imageName = os.getenv('file_to_convert')
+    print('Read image')  
+    image = cv2.imread(upscale.name)
+    print("Image Size - Before:")
+    print(image.shape)
 
-fileToWorkWith=Path(imageName)
-if not fileToWorkWith.is_file():
-    print("Die Datei "+str(fileToWorkWith)+" existiert nicht!")
-    sys.exit(1)
+    print('Read the desired model')
+    sr.readModel("LapSRN_x2.pb")
 
-print('Datei gefunden...')
+    print('Set the desired model and scale to get correct pre- and post-processing') 
+    sr.setModel("lapsrn", 2)
 
-
-fileToWorkWith = str(fileToWorkWith)
-
-print('SR object erzeugen')
-sr = cv2.dnn_superres.DnnSuperResImpl.create()
-
-print('Bild einlesen')  
-image = cv2.imread(fileToWorkWith)
-print(image.shape)
-
-
-
-print('Read the desired model')
-path = "LapSRN_x2.pb"
-sr.readModel(path)
-
-print('Set the desired model and scale to get correct pre- and post-processing') 
-sr.setModel("lapsrn", 2)
-
-print('Upscale the image')
-result = sr.upsample(image)  
-print(result.shape)
-print('Save the image')
-cv2.imwrite('./out/upscaled-'+imageName, result)
+    print('Upscale the image')
+    result = sr.upsample(image)
+    print("Image Size - Before:")
+    print(result.shape)
+    print('Save the image')
+    cv2.imwrite('./upscaled-'+upscale.name, result)
+    # Hier sollte der Name in eine Liste geschrieben werden
+    # Oder es könnte einen Ordner out und einen Ordner in geben. 
+    # Das Script macht dann einen Abgleich
+    # Es sollte einen Funktion geben, die seed und prompt verarbeitet 
+if __name__ == "__main__":
+    print("Upscale started...")
+    typer.run(main)
