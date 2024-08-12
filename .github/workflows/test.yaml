@@ -10,7 +10,7 @@ jobs:
         run: ls 
 
       - name: setup-dependencies 
-        run:  setup.sh
+        run:  ./setup.sh
       - name: upscale
         run: python3 upscale-param.py astronaut.py
       - name: config user name  
