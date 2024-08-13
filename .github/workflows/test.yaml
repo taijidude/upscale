@@ -3,12 +3,11 @@ on: workflow_dispatch
 jobs:
   my-job:
     runs-on: ubuntu-latest    
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
-      - name: check path
-        run: ls 
-
       - name: setup-dependencies 
         run:  ./setup.sh
       - name: upscale
