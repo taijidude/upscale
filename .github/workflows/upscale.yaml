@@ -1,10 +1,11 @@
 name: upscale
-on: workflow_dispatch
-  inputs:
-    toUpscale: 
-      description: 'Zu verarbeitende Datei'
-      required: true
-      default: 'Bitte Datei angeben'
+on: 
+  workflow_dispatch
+    inputs:
+      toUpscale: 
+        description: 'Zu verarbeitende Datei'
+        required: true
+        default: 'Bitte Datei angeben'
 jobs:
   my-job:
     runs-on: ubuntu-latest    
