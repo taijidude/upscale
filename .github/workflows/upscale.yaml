@@ -1,6 +1,6 @@
 name: upscale
 on: 
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
       toUpscale: 
         description: 'Zu verarbeitende Datei'
