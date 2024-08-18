@@ -1,1 +1,16 @@
 name: remove background
+on: workflow_dispatch
+  inputs:
+    toProcess: 
+      description: 'Zu verarbeitende Datei'
+      required: true
+      default: 'Bitte Datei angeben'
+jobs:
+  my-job:
+    runs-on: ubuntu-latest    
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
