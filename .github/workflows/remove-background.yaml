@@ -1,6 +1,6 @@
-name: remove background
+name: remove_background
 on: 
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
       toProcess: 
         description: 'Zu verarbeitende Datei'
@@ -14,4 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: setup
+        run: ./setup-upscale.sh
       - uses: stefanzweifel/git-auto-commit-action@v5

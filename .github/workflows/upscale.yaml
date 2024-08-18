@@ -5,7 +5,7 @@ on:
       toUpscale: 
         description: 'Zu verarbeitende Datei'
         required: true
-        default: 'Bitte Datei angeben'
+        default: './not_processed/FILENAME'
 jobs:
   my-job:
     runs-on: ubuntu-latest    
@@ -17,5 +17,5 @@ jobs:
       - name: setup-dependencies 
         run:  ./setup-upscale.sh
       - name: upscale
-        run: python3 ./upscale.py ./not_processed/$toUpscale
+        run: python3 ./upscale.py $toUpscale
       - uses: stefanzweifel/git-auto-commit-action@v5
