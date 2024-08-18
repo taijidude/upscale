@@ -4,6 +4,7 @@ on: workflow_dispatch
     toUpscale: 
       description: 'File to upscale'
       required: true
+      default: 'Bitte Datei angeben'
 jobs:
   my-job:
     runs-on: ubuntu-latest    
