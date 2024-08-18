@@ -1,5 +1,9 @@
 name: upscale
 on: workflow_dispatch
+  inputs:
+    toUpscale: 
+      description: 'File to upscale'
+      required: true
 jobs:
   my-job:
     runs-on: ubuntu-latest    
@@ -11,5 +15,5 @@ jobs:
       - name: setup-dependencies 
         run:  ./setup.sh
       - name: upscale
-        run: python3 ./upscale.py ./astronaut.png
+        run: python3 ./upscale.py ./not_processed/$toUpscale
       - uses: stefanzweifel/git-auto-commit-action@v5
