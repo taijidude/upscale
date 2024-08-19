@@ -17,5 +17,5 @@ jobs:
       - name: setup
         run: ./setup-rembg.sh
       - name: upscale
-        run: python3 ./run.py $toProcess
+        run:  echo "toProcess: $toProcess \n"; python3 ./run.py $toProcess
       - uses: stefanzweifel/git-auto-commit-action@v5
