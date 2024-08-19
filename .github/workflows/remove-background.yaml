@@ -7,15 +7,17 @@ on:
         required: true
         default: './not_processed/FILENAME'
 jobs:
-  my-job:
+  remove-background-job:
     runs-on: ubuntu-latest    
     permissions:
       contents: write
 
     steps:
+      - name: print-parameters
+        run: echo $toProcess
       - uses: actions/checkout@v4
       - name: setup
         run: ./setup-rembg.sh
       - name: upscale
-        run:  echo "$toProcess \n"; python3 ./run.py $toProcess
+        run:  python3 ./run.py $toProcess
       - uses: stefanzweifel/git-auto-commit-action@v5
