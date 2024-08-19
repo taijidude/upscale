@@ -1,5 +1,5 @@
 
-from rembg import remove
+from removebackground import remove
 import typer
 from pathlib import Path
 
