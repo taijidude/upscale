@@ -5,7 +5,7 @@ on:
       toProcess: 
         description: 'Zu verarbeitende Datei'
         required: true
-        default: 'Bitte Datei angeben'
+        default: './not_processed/FILENAME'
 jobs:
   my-job:
     runs-on: ubuntu-latest    
@@ -16,4 +16,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: setup
         run: ./setup-rembg.sh
+      - name: upscale
+        run: python3 ./rembg.py $toProcess
       - uses: stefanzweifel/git-auto-commit-action@v5
