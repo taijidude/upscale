@@ -12,7 +12,7 @@ def main(upscale: Path):
     sr = cv2.dnn_superres.DnnSuperResImpl.create()
 
     print('Read image')  
-    image = cv2.imread(upscale.name)
+    image = cv2.imread(str(upscale))
     print("Image Size - Before:")
     print(image.shape)
 
