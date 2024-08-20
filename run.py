@@ -7,7 +7,7 @@ def main(file_to_process: Path):
     if not file_to_process.exists():
         raise Exception("Der Pfad: "+str(file_to_process)+" existiert nicht!")
     
-    output_path = Path.cwd().joinpath('background-removed').joinpath(file_to_process)
+    output_path = Path('.').joinpath('background-removed').joinpath(file_to_process)
 
     with open(file_to_process, 'rb') as i:
         with open(output_path, 'wb') as o:
