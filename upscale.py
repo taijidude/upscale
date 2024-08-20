@@ -27,7 +27,7 @@ def main(upscale: Path):
     print("Image Size - Before:")
     print(result.shape)
     print('Save the image')
-    cv2.imwrite('./upscaled/'+upscale.name, result)
+    cv2.imwrite('./upscaled/upscaled-'+upscale.name, result)
     # Hier sollte der Name in eine Liste geschrieben werden
     # Oder es könnte einen Ordner out und einen Ordner in geben. 
     # Das Script macht dann einen Abgleich
