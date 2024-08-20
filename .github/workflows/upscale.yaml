@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: setup-permissions
+        run: git update-index --chmod=+x ./setup-rembg.sh
       - name: setup-dependencies 
         run:  ./setup-upscale.sh
       - name: upscale

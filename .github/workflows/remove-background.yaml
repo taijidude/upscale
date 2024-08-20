@@ -16,8 +16,10 @@ jobs:
       - name: print-parameters
         run: echo $toProcess
       - uses: actions/checkout@v4
+      - name: set-permission
+        run: git update-index --chmod=+x ./setup-rembg.sh
       - name: setup
         run: ./setup-rembg.sh
-      - name: upscale
+      - name: run_python
         run:  python3 ./run.py $toProcess
       - uses: stefanzweifel/git-auto-commit-action@v5
