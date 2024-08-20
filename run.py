@@ -15,9 +15,8 @@ def main(file_to_process: Path):
     with open(file_to_process, 'rb') as i:
         with open(output_path, 'xb') as o:
             input = i.read()
-            output = remove(file_to_process)
+            output = remove(str(file_to_process))
             o.write(output_path)
-
 
 if __name__ == "__main__":
     print("Remove Background started...")
