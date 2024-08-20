@@ -10,10 +10,10 @@ def main(file_to_process: Path):
     output_path = './background-removed/'+file_to_process.name
 
     with open(file_to_process, 'rb') as i:
-        with open(output, 'wb') as o:
+        with open(output_path, 'wb') as o:
             input = i.read()
-            output = remove(input)
-            o.write(output)
+            output = remove(file_to_process)
+            o.write(output_path)
 
 
 if __name__ == "__main__":
