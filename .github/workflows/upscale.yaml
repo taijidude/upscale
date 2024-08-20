@@ -2,7 +2,7 @@ name: upscale
 on: 
   workflow_dispatch:
     inputs:
-      toUpscale: 
+      to_process: 
         description: 'Zu verarbeitende Datei'
         required: true
         default: './not_processed/FILENAME'
@@ -19,5 +19,5 @@ jobs:
       - name: setup-dependencies 
         run:  ./setup-upscale.sh
       - name: upscale
-        run: python3 ./upscale.py $toUpscale
+        run: python3 ./upscale.py   ${{ github.event.inputs.to_process }}
       - uses: stefanzweifel/git-auto-commit-action@v5

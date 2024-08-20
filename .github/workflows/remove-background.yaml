@@ -2,7 +2,7 @@ name: remove_background
 on: 
   workflow_dispatch:
     inputs:
-      toProcess: 
+      to_process: 
         description: 'Zu verarbeitende Datei'
         required: true
         default: './not_processed/FILENAME'
@@ -13,13 +13,11 @@ jobs:
       contents: write
 
     steps:
-      - name: print-parameters
-        run: echo $toProcess
       - uses: actions/checkout@v4
       - name: set-permission
         run: git update-index --chmod=+x ./setup-rembg.sh
       - name: setup
         run: ./setup-rembg.sh
       - name: run_python
-        run:  python3 ./run.py $toProcess
+        run:  python3 ./run.py ${{ github.event.inputs.to_process }}
       - uses: stefanzweifel/git-auto-commit-action@v5
