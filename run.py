@@ -2,6 +2,7 @@
 from rembg import remove
 import typer
 from pathlib import Path
+from PIL import Image
 
 def main(file_to_process: Path):
     if not file_to_process.exists():
