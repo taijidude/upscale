@@ -13,9 +13,9 @@ def main(file_to_process: Path):
 
     output_path = output_path.joinpath(file_to_process.name)
 
-input = Image.open(str(file_to_process))
-output = remove(input)
-output.save(str(output_path))
+    input = Image.open(str(file_to_process))
+    output = remove(input)
+    output.save(str(output_path))
 
 
 
